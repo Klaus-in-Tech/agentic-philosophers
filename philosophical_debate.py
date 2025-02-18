@@ -26,7 +26,6 @@ class PhilosophicalDebate:
             self.socrates_chain | self.plato_chain | self.aristotle_chain
         )
 
-        self.debate_history = []
 
     def conduct_debate(self, initial_question: str) -> Dict[str, str]:
         """
@@ -35,26 +34,30 @@ class PhilosophicalDebate:
         print(f"\n=== Starting Debate on: {initial_question} ===\n")
 
         try:
-            # First, Socrates responds
+            # First, Socrates responds to user input
             socrates_response = self.socrates_chain.invoke(initial_question)
-            print(f"Socrates: {socrates_response}\n")
+            # print(f"Socrates: {socrates_response}\n")
 
             # Then Plato responds to Socrates
             plato_response = self.plato_chain.invoke(socrates_response)
-            print(f"Plato: {plato_response}\n")
+            # print(f"Plato: {plato_response}\n")
 
-            # Finally, Aristotle provides synthesis
-            final_response = self.aristotle_chain.invoke(plato_response)
-            print(f"Aristotle: {final_response}\n")
+            # Then, Aristotle responds to Socrates
+            artistotle_response = self.aristotle_chain.invoke(socrates_response)
+            print(f"Aristotle: {aristotle_agent}\n")
+
+            # Finally, Socrates provides synthesis
+            final_response = self.socrates_chain.invoke("Based on plato's response "+plato_response+" and "+"Artistotle's response  "+artistotle_response)
+            # print(f"Socrates: {final_response}\n")
 
             debate_result = {
                 "question": initial_question,
                 "socrates_response": socrates_response,
                 "plato_response": plato_response,
-                "aristotle_response": final_response,
+                "aristotle_response": artistotle_response,
+                "final_response":final_response,
             }
 
-            self.debate_history.append(debate_result)
             return debate_result
 
         except Exception as e:
@@ -70,9 +73,11 @@ def main():
     if result:
         print("\n=== Debate Summary ===")
         print(f"Question: {result['question']}")
-        print(f"Socrates' View: {result['socrates_response'][:150]}...")
-        print(f"Plato's Response: {result['plato_response'][:150]}...")
-        print(f"Aristotle's Synthesis: {result['aristotle_response'][:150]}...")
+        print(f"Socrates' View: {result['socrates_response']}...")
+        print(f"Plato's Response: {result['plato_response']}...")
+        print(f"Aristotle's Synthesis: {result['aristotle_response']}...")
+        print(f"Scorates's Synthesis: {result['final_response']}...")
+
 
 
 if __name__ == "__main__":

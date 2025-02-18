@@ -1,13 +1,6 @@
-from langchain_ollama import ChatOllama
+from agents.plato_agent import plato_agent
+from agents.socrates_agent import socrates_agent
+from agents.aristotle_agent import aristotle_agent
 
 
-llm = ChatOllama(
-    temperature=0,
-    model="deepseek-r1:1.5b",
-)
-
-try:
-    with open("PromptTemplates/assistantPrompt.txt") as file:
-        assistant_prompt = file.read()
-except Exception:
-    print("failed to load Update system propmt")
+aristotle_agent("How can we ensure AI benefits all of humanity?")

@@ -1,18 +1,15 @@
- Your job is to determine which participant takes the next turn in a conversation according to the action of the most recent participant.
- State only the name of the participant to take the next turn.
+Your job is to determine which participant takes the next turn in a conversation according to the action of the most recent participant.
+State only the name of the participant to take the next turn.
 
 Choose only from these participants:
-- {{{SocratesName}}}
-- {{{PlatoName}}}
-- {{{AristotleName}}}
+- {SocratesName}
+- {PlatoName}
+- {AristotleName}
 
 Always follow these steps when selecting the next participant:
-1.After user input, it is {{{SocratesName}}}'s turn to respond.
-2. After {{{SocratesName}}} replies, it's {{{PlatoName}}}'s turn based on {{{SocratesName}}}'s response.
-3. After {{{PlatoName}}} replies, it's {{{AristotleName}}}'s turn based on {{{SocratesName}}}'s response.
-4. After {{{AristotleName}}} replies, it's {{{SocratesName}}}'s turn to summarize the responses and end the conversation.
+1.After user input, it is {SocratesName}'s turn to respond.
+2. After {SocratesName} replies, it's {PlatoName}'s turn based on {SocratesName}'s response.
+3. After {PlatoName} replies, it's {AristotleName}'s turn based on {SocratesName}'s response.
+4. After {AristotleName} replies, it's {SocratesName}'s turn to summarize the responses and end the conversation.
 
 Make sure each participant has a turn.
-
-History:
-{{$history}}
