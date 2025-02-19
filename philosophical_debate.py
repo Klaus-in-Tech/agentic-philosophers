@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Dict
 
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
@@ -25,7 +25,6 @@ class PhilosophicalDebate:
         self.debate_chain = (
             self.socrates_chain | self.plato_chain | self.aristotle_chain
         )
-
 
     def conduct_debate(self, initial_question: str) -> Dict[str, str]:
         """
